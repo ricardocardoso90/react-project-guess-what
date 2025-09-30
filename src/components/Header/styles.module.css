@@ -1,6 +1,44 @@
 .container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   img {
     height: 3.75rem;
+  }
+
+  header {
+    width: 100%;
+    padding: 3.25rem 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      border: none;
+      background: transparent;
+    }
+
+    img {
+      height: 2rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    img:hover {
+      scale: 1.3;
+    }
+
+    span {
+      color: #9B9B9B;
+      font-size: 1.12rem;
+
+      strong {
+        color: #E8891C;
+        font-size: 1.37rem;
+      }
+    }
   }
 }
