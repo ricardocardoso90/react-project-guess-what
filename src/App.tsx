@@ -35,6 +35,7 @@ export default function App() {
           <Input
             autoFocus
             maxLength={1}
+            placeholder="?"
           />
         </div>
       </main>
