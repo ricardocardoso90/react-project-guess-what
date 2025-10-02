@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import { Tip } from "./components/Tip";
 import { Header } from "./components/Header";
 import { Letter } from "./components/Letter";
+import { Input } from "./components/Input";
 
 export default function App() {
   function handleRestart() {
@@ -26,6 +27,15 @@ export default function App() {
           <Letter value="A" />
           <Letter value="C" />
           <Letter value="T" />
+        </div>
+
+        <h4>Palpite</h4>
+
+        <div>
+          <Input
+            autoFocus
+            maxLength={1}
+          />
         </div>
       </main>
     </div>
