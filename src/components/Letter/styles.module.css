@@ -1,6 +1,16 @@
-.container {
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  border: 2px solid #ccc;
+.letter {
+  width: 3.37rem;
+  height: 3.37rem;
+  border-radius: 0.62rem;
+
+  color: #6363DB;
+  background-color: #EBEBFC;
+
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -6,7 +6,7 @@ type Props = {
 
 export function Letter({ value = "" }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={styles.letter}>
       <span>{value}</span>
     </div>
   )
