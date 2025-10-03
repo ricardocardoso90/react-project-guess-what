@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { Letter } from "./components/Letter";
 import { Input } from "./components/Input";
 import { Button } from "./components/Button";
+import { LettersUsed } from "./components/LettersUsed";
 
 export default function App() {
   function handleRestart() {
@@ -40,6 +41,8 @@ export default function App() {
           />
           <Button title="Confirmar" />
         </div>
+
+        <LettersUsed />
       </main>
     </div>
   )
