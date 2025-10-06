@@ -21,7 +21,9 @@ export default function App() {
           onRestart={handleRestart}
         />
 
-        <Tip tip="Uma das linguagens de programação mais utilizadas no mundo!!" />
+        <Tip
+          tip="Uma das linguagens de programação mais utilizadas no mundo!!"
+        />
 
         <div className={styles.word}>
           <Letter value="R" />
