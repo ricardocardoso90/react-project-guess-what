@@ -14,3 +14,25 @@
   align-items: center;
   justify-content: center;
 }
+
+.letter-small {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.43rem;
+
+  font-weight: 500;
+  font-size: 1.25rem;
+  border: 1px solid #6363DB;
+}
+
+.letter-correct {
+  background-color: #E1F5EC;
+  border-color: #03AB4F;
+  color: #03AB4F;
+}
+
+.letter-wrong {
+  background-color: #FFCF62;
+  border-color: #691B0A;
+  color: #691B0A;
+}
