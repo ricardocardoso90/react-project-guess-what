@@ -29,6 +29,15 @@ export default function App() {
     setLetter("");
   };
 
+  function handleConfirm() {
+    if (!challenge) return;
+    if (!letter.trim()) return alert("Digite uma letra");
+
+    const value = letter.toUpperCase().trim();
+    const exists = lettersUsed.find((item) => item.value === value);
+    if (exists) return alert("Letra já utilizada");
+  };
+
   useEffect(() => {
     startGame();
   }, []);
@@ -64,8 +73,12 @@ export default function App() {
             autoFocus
             maxLength={1}
             placeholder="?"
+            onChange={(e) => setLetter(e.target.value)}
           />
-          <Button title="Confirmar" />
+          <Button
+            title="Confirmar"
+            onClick={handleConfirm}
+          />
         </div>
 
         <LettersUsed

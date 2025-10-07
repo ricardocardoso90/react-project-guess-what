@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 export type LettersUsedProps = {
   value: string;
   correct: boolean;
+  id: number;
 };
 
 type Props = {
@@ -16,12 +17,12 @@ export function LettersUsed({ data }: Props) {
       <h5>Letras já utilizadas</h5>
 
       <div>
-        {data.map((item, id) => (
+        {data.map(({ value, correct, id }) => (
           <Letter
             key={id}
             size="small"
-            value={item.value}
-            color={item.correct ? "correct" : "wrong"}
+            value={value}
+            color={correct ? "correct" : "wrong"}
           />
         ))}
       </div>
