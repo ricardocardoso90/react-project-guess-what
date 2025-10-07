@@ -34,8 +34,12 @@ export default function App() {
     if (!letter.trim()) return alert("Digite uma letra");
 
     const value = letter.toUpperCase().trim();
-    const exists = lettersUsed.find((item) => item.value === value);
-    if (exists) return alert("Letra já utilizada");
+    const exists = lettersUsed.find((item) => item.value.toUpperCase() === value);
+
+    if (exists) return alert("Letra já utilizada" + value);
+    setLettersUsed((prev) => [...prev, { value, correct: challenge.word.includes(value), id: Date.now() }]);
+
+    setLetter("");
   };
 
   useEffect(() => {
@@ -72,6 +76,7 @@ export default function App() {
           <Input
             autoFocus
             maxLength={1}
+            value={letter}
             placeholder="?"
             onChange={(e) => setLetter(e.target.value)}
           />
