@@ -11,6 +11,7 @@ import { Button } from "./components/Button";
 import { LettersUsed, type LettersUsedProps } from "./components/LettersUsed";
 
 export default function App() {
+  const [score, setScore] = useState(0);
   const [letter, setLetter] = useState("");
   const [attempts, setAttempts] = useState(5);
   const [challenge, setChallenge] = useState<Challenge | null>(null);
@@ -37,7 +38,14 @@ export default function App() {
     const exists = lettersUsed.find((item) => item.value.toUpperCase() === value);
 
     if (exists) return alert("Letra já utilizada" + value);
-    setLettersUsed((prev) => [...prev, { value, correct: challenge.word.includes(value), id: Date.now() }]);
+
+    const hits = challenge.word.toUpperCase().split("").filter((item) => item === value).length;
+    const correct = hits > 0;
+    const currentScore = score + hits;
+
+    setLettersUsed((prev) => [...prev, { value, correct }]);
+    setScore(currentScore);
+    // setLettersUsed((prev) => [...prev, { value, correct: challenge.word.includes(value), id: Date.now() }]);
 
     setLetter("");
   };
