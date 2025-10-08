@@ -43,7 +43,7 @@ export default function App() {
     const correct = hits > 0;
     const currentScore = score + hits;
 
-    setLettersUsed((prev) => [...prev, { value, correct }]);
+    setLettersUsed((prev) => [...prev, { value, correct, id: Date.now() }]);
     setScore(currentScore);
     // setLettersUsed((prev) => [...prev, { value, correct: challenge.word.includes(value), id: Date.now() }]);
 
