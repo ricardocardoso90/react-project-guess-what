@@ -13,7 +13,6 @@ import { LettersUsed, type LettersUsedProps } from "./components/LettersUsed";
 export default function App() {
   const [score, setScore] = useState(0);
   const [letter, setLetter] = useState("");
-  const [attempts, setAttempts] = useState(5);
   const [lettersUsed, setLettersUsed] = useState<LettersUsedProps[]>([]);
   const [challenge, setChallenge] = useState<Challenge | null>(null);
 
@@ -26,8 +25,10 @@ export default function App() {
     const randomWord = WORDS[index];
 
     setChallenge(randomWord);
-    setAttempts(0);
+
+    setScore(0);
     setLetter("");
+    setLettersUsed([]);
   };
 
   function handleConfirm() {
@@ -63,7 +64,7 @@ export default function App() {
       <main>
         <Header
           max={10}
-          current={attempts}
+          current={score}
           onRestart={handleRestart}
         />
 
