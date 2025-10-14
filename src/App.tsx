@@ -41,13 +41,13 @@ export default function App() {
     if (exists) return alert("Letra já utilizada" + value);
 
     const hits = challenge.word.toUpperCase().split("").filter((item) => item === value).length;
-    
+
     const correct = hits > 0;
     const currentScore = score + hits;
 
     setLettersUsed((prev) => [...prev, { value, correct, id: Date.now() }]);
     setScore(currentScore);
-    
+
     // setLettersUsed((prev) => [...prev, { value, correct: challenge.word.includes(value), id: Date.now() }]);
 
     setLetter("");
@@ -73,12 +73,17 @@ export default function App() {
         />
 
         <div className={styles.word}>
-          {challenge.word.split("").map((item, id) => (
-            <Letter
-              key={id}
-              value={item}
-            />
-          ))}
+          {challenge.word.split("").map((letter, id) => {
+            const letterUsed = lettersUsed.find((used) => used.value.toUpperCase() === letter.toUpperCase());
+
+            return (
+              <Letter
+                key={id}
+                value={letterUsed?.value}
+                color={letterUsed?.correct ? "correct" : "default"}
+              />
+            )
+          })}
         </div>
 
         <h4>Palpite</h4>
