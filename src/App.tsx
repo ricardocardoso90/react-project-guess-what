@@ -48,8 +48,6 @@ export default function App() {
     setLettersUsed((prev) => [...prev, { value, correct, id: Date.now() }]);
     setScore(currentScore);
 
-    // setLettersUsed((prev) => [...prev, { value, correct: challenge.word.includes(value), id: Date.now() }]);
-
     setLetter("");
   };
 
