@@ -16,6 +16,8 @@ export default function App() {
   const [lettersUsed, setLettersUsed] = useState<LettersUsedProps[]>([]);
   const [challenge, setChallenge] = useState<Challenge | null>(null);
 
+  const ATTEMPTS_MARGIN = 5;
+
   function handleRestart() {
     console.log("Reiniciar");
   };
@@ -61,9 +63,9 @@ export default function App() {
     <div className={styles.container}>
       <main>
         <Header
-          max={10}
           onRestart={handleRestart}
           current={lettersUsed.length}
+          max={challenge.word.length + ATTEMPTS_MARGIN}
         />
 
         <Tip
