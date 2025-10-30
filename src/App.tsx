@@ -62,8 +62,8 @@ export default function App() {
       <main>
         <Header
           max={10}
-          current={score}
           onRestart={handleRestart}
+          current={lettersUsed.length}
         />
 
         <Tip
