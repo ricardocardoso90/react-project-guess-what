@@ -40,7 +40,10 @@ export default function App() {
     const value = letter.toUpperCase().trim();
     const exists = lettersUsed.find((item) => item.value.toUpperCase() === value);
 
-    if (exists) return alert("Letra já utilizada" + value);
+    if (exists) {
+      setLetter("");
+      return alert("Letra já utilizada" + value);
+    };
 
     const hits = challenge.word.toUpperCase().split("").filter((item) => item === value).length;
 
@@ -53,9 +56,23 @@ export default function App() {
     setLetter("");
   };
 
+  function endGame(message: string) {
+    alert(message);
+    startGame();
+  };
+
   useEffect(() => {
     startGame();
   }, []);
+
+  useEffect(() => {
+    if (!challenge) return;
+
+    setTimeout(() => {
+      if (score === challenge.word.length) return endGame("Parabéns! Você descobriu a palavra!");
+      if (lettersUsed.length === challenge.word.length + ATTEMPTS_MARGIN) return endGame("Game Over! Você usou todas as tentativas!");
+    }, 200)
+  }, [score, lettersUsed.length]);
 
   if (!challenge) return;
 
